@@ -7,7 +7,7 @@
 {% else %}
 <p>You are not logged in</p>
 <h3><a href="{% url 'login' %}">Log in</a></h2>
-<h3><a href="{% url 'todo_signup' %}">Sign up</a></h3>
+<h3><a href="{% url 'signup' %}">Sign up</a></h3>
 {% endif %}
 {% for todo in object_list %}
 <div>
