@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div>
+    <h1>{{ todo.title }}</h1>
+    <p>{{ todo.description }}</p>
+    <p>{{ todo.date }}</p>
+    {% if todo.done %}
+    <p>Already done!</p>
+    {% else %}
+    <p>Not done yet!</p>
+    {% endif %}
+</div>
+<a href="{% url 'todo_edit' todo.pk %}">Edit</a> |
+<a href="{% url 'todo_delete' todo.pk %}">delete</a>
+<br>
+<a href="{% url 'todo_list' %}">Back to todo LIST</a>
+{% endblock content %}
