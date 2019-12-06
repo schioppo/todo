@@ -1,8 +1,10 @@
+from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Todo
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
+
 # Create your views here.
 
 class TodoListView(ListView):
@@ -27,6 +29,13 @@ class TodoDeleteView(DeleteView):
     model = Todo
     template_name = 'todo_delete.html'
     success_url = reverse_lazy('todo_list')
+
+class TodoSignupView(CreateView):
+    form_class = UserCreationForm
+    success_url = reverse_lazy('todo_list')
+    template_name = 'signup.html'
+    
+
 
 
 
