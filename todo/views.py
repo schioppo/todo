@@ -10,6 +10,7 @@ from django.urls import reverse_lazy, reverse
 class TodoListView(ListView):
     model = Todo
     template_name = 'todo_list.html'
+    ordering = ['-done']
 
 class TodoDetailView(DetailView):
     model = Todo

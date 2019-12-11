@@ -1,11 +1,31 @@
+{% load static %}
 <html>
-    <head>
-        <title>todo_project</title>
-    </head>
 
-    <body>
-        <h1><a href="{% url 'todo_list' %}">TODOS</a></h1>
-        {% block content %}
-        {% endblock content %}
-    </body>
+<head>
+    <title>todo_project</title>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Bebas+Neue|Open+Sans&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <ul>
+                    <li class="nav-left"><a href="{% url 'todo_list' %}">TODOS</a></li>
+                    <li class="nav-left"><a href="{% url 'todo_new' %}">+ new todo</a></li>
+                    {% if user.is_authenticated %}
+                    <li class="nav-right"><a href="{% url 'logout' %}">LOGOUT</a></li>
+                    {% else %}
+                    <li class="nav-right"><a href="{% url 'login' %}">LOGIN</a></li>
+                    <li class="nav-right"><a href="{% url 'signup' %}">SIGNUP</a></li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </div>
+    </header>
+    {% block content %}
+    {% endblock content %}
+</body>
+
 </html>

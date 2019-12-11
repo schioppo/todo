@@ -124,3 +124,4 @@ STATIC_URL = '/static/'
 LOGIN_REDIRECT_URL = 'todo_list'
 LOGOUT_REDIRECT_URL = 'todo_list'
 AUTH_USER_MODEL = 'users.CustomUser'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]

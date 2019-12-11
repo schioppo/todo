@@ -1,18 +1,17 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div>
+<div class="card" {% if todo.done %}style="background-color:rgb(230,97,97);"
+    {% else %}style='background-color:rgb(102,230,102);' {% endif %}>
     <h1>{{ todo.title }}</h1>
     <p>{{ todo.description }}</p>
-    <p>{{ todo.date }}</p>
+    <h5>{{ todo.date }}</h5>
     {% if todo.done %}
     <p>Already done!</p>
     {% else %}
     <p>Not done yet!</p>
     {% endif %}
+    <a href="{% url 'todo_edit' todo.pk %}">Edit</a> |
+    <a href="{% url 'todo_delete' todo.pk %}">Delete</a>
 </div>
-<a href="{% url 'todo_edit' todo.pk %}">Edit</a> |
-<a href="{% url 'todo_delete' todo.pk %}">delete</a>
-<br>
-<a href="{% url 'todo_list' %}">Back to todo LIST</a>
 {% endblock content %}
